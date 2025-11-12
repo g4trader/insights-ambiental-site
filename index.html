@@ -31,6 +31,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     -->
+    <style>
+      .floating-whatsapp{position:fixed;bottom:24px;right:24px;z-index:1100;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:9999px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;box-shadow:0 20px 45px -15px rgba(0,0,0,0.5);transition:transform .2s ease,box-shadow .2s ease;}
+      .floating-whatsapp:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 18px 40px -12px rgba(0,0,0,0.6);}
+      .floating-whatsapp:active{transform:translateY(0) scale(0.98);}
+      .floating-whatsapp svg{width:30px;height:30px;}
+      @media (max-width:640px){.floating-whatsapp{bottom:18px;right:18px;width:56px;height:56px;}}
+    </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        if (document.querySelector('.floating-whatsapp')) return;
+        var link = document.createElement('a');
+        link.href = 'https://wa.me/5551993308012';
+        link.target = '_blank';
+        link.rel = 'noreferrer';
+        link.className = 'floating-whatsapp';
+        link.setAttribute('aria-label', 'Conversar pelo WhatsApp');
+        link.innerHTML = '<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.824.74 5.462 2.037 7.76L0 32l8.43-2.21A15.9 15.9 0 0 0 16 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm7.833 22.92c-.33.93-1.91 1.77-2.658 1.88-.68.1-1.52.14-2.453-.15-.567-.18-1.294-.42-2.23-.82-3.93-1.7-6.48-5.7-6.68-5.96-.2-.26-1.59-2.11-1.59-4.02 0-1.91 1.01-2.86 1.37-3.25.36-.39.79-.48 1.05-.48s.52.01.75.01c.24 0 .56-.09.88.67.33.78 1.11 2.7 1.21 2.9.1.2.17.43.03.68-.14.25-.22.43-.43.66-.2.23-.45.52-.64.7-.21.2-.43.42-.19.82.24.39 1.06 1.74 2.28 2.82 1.55 1.38 2.85 1.81 3.24 2.01.39.2.62.17.85-.1.23-.28.98-1.14 1.24-1.53.26-.39.51-.32.86-.19.35.13 2.2 1.04 2.58 1.23.38.19.63.28.73.44.09.16.09.95-.21 1.88z"></path></svg>';
+        document.body.appendChild(link);
+      });
+    </script>
     <script type="module" crossorigin src="/assets/index-Cfil0XwF.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-dc5WhIGh.css">
   </head>
