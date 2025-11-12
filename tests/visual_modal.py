@@ -1,3 +1,5 @@
+import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -12,9 +14,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def capture_modal_screenshot(output: Path = Path("modal-desktop.png")) -> Path:
     """
-    Abre o site local (http://localhost:4173/) e captura um print
-    da modal de serviços com Selenium em modo headless.
+    Sobe um servidor HTTP simples (porta 4173), abre o site
+    e captura um print da modal de serviços com Selenium.
     """
+    project_root = Path(__file__).resolve().parents[1]
+    server = subprocess.Popen(
+        [sys.executable, "-m", "http.server", "4173"],
+        cwd=project_root,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    time.sleep(1.5)
+
     options = Options()
     options.add_argument("--headless=new")
     options.add_argument("--window-size=1280,900")
@@ -45,6 +56,11 @@ def capture_modal_screenshot(output: Path = Path("modal-desktop.png")) -> Path:
         return output
     finally:
         driver.quit()
+        server.terminate()
+        try:
+            server.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            server.kill()
 
 
 if __name__ == "__main__":
