@@ -9,7 +9,12 @@
     { "src": "sitemap.xml", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
+    { "src": "/blog/(.*\\.html)", "dest": "/blog/$1" },
+    { "src": "/blog", "dest": "/index.html" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/images/(.*)", "dest": "/images/$1" },
+    { "src": "/videos/(.*)", "dest": "/videos/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
 
