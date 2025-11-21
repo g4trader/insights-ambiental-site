@@ -199,12 +199,40 @@
       border-radius: 1rem;
       overflow: hidden;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
     .article-cover img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
+    }
+    .article-cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('/images/ods-capa.jpg') center/cover no-repeat;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .article-cover img.loaded + .article-cover::before,
+    .article-cover img[src*='ods-capa']:not([src='']) {
+      opacity: 1;
+    }
+    .cover-placeholder {
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      z-index: 1;
+      position: relative;
     }
     @media (max-width: 768px) {
       .article-header h1 {
@@ -224,7 +252,14 @@
     <a href="/blog" class="back-link">← Voltar ao Blog</a>
     
     <div class="article-cover">
-      <img src="/images/ods-capa.jpg" alt="Os 17 Objetivos de Desenvolvimento Sustentável da ONU" />
+      <img src="/images/ods-capa.jpg" alt="Os 17 Objetivos de Desenvolvimento Sustentável da ONU" 
+           onerror="this.style.display='none'; this.parentElement.querySelector('.cover-placeholder').style.display='block';" />
+      <div class="cover-placeholder" style="display: none;">
+        <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">Os 17 ODS da ONU</h2>
+        <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9);">
+          Os 17 Objetivos do Desenvolvimento Sustentável tem um prazo até o ano de 2030 para concluir 169 metas em áreas de importância crucial para a humanidade e para o planeta.
+        </p>
+      </div>
     </div>
     
     <div class="article-header">
