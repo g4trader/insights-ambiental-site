@@ -121,6 +121,236 @@ Error generating stack: `+l.message+`
       defer
       src="https://manus-analytics.com/umami"
       data-website-id="903f198c-2463-455c-a1a4-0366eb11e580"></script>
+    <script>
+      // Modal de e-mail
+      (function() {
+        const email = 'josiane@insightsambiental.com.br';
+        
+        // Criar estilos da modal
+        const style = document.createElement('style');
+        style.textContent = `
+          #email-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+          #email-modal-overlay.show {
+            opacity: 1;
+          }
+          #email-modal {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+          }
+          #email-modal-overlay.show #email-modal {
+            transform: scale(1);
+          }
+          #email-modal h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a19;
+          }
+          #email-modal p {
+            margin: 0 0 1.5rem 0;
+            color: #5e5e5b;
+            line-height: 1.6;
+          }
+          #email-modal .email-address {
+            background: #f8f8f7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: #0081f2;
+            text-align: center;
+            word-break: break-all;
+          }
+          #email-modal .buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+          }
+          #email-modal button {
+            flex: 1;
+            min-width: 120px;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+          }
+          #email-modal .btn-primary {
+            background: #0081f2;
+            color: white;
+          }
+          #email-modal .btn-primary:hover {
+            background: #0066cc;
+          }
+          #email-modal .btn-secondary {
+            background: #f8f8f7;
+            color: #1a1a19;
+          }
+          #email-modal .btn-secondary:hover {
+            background: #e8e8e7;
+          }
+          #email-modal .btn-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #858481;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            padding: 0;
+            min-width: auto;
+          }
+          #email-modal .btn-close:hover {
+            background: #f8f8f7;
+            color: #1a1a19;
+          }
+          #email-modal .copy-feedback {
+            margin-top: 0.5rem;
+            color: #25ba3b;
+            font-size: 0.875rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+          #email-modal .copy-feedback.show {
+            opacity: 1;
+          }
+        `;
+        document.head.appendChild(style);
+        
+        function openEmailModal() {
+          // Verificar se a modal já existe
+          let overlay = document.getElementById('email-modal-overlay');
+          if (overlay) {
+            overlay.classList.add('show');
+            return;
+          }
+          
+          // Criar overlay
+          overlay = document.createElement('div');
+          overlay.id = 'email-modal-overlay';
+          overlay.innerHTML = `
+            <div id="email-modal" style="position: relative;">
+              <button class="btn-close" aria-label="Fechar">&times;</button>
+              <h3>Entre em Contato</h3>
+              <p>Entre em contato conosco pelo e-mail:</p>
+              <div class="email-address">${email}</div>
+              <div class="buttons">
+                <button class="btn-primary" onclick="window.location.href='mailto:${email}'">Abrir E-mail</button>
+                <button class="btn-secondary" id="copy-email-btn">Copiar E-mail</button>
+              </div>
+              <div class="copy-feedback" id="copy-feedback">E-mail copiado!</div>
+            </div>
+          `;
+          document.body.appendChild(overlay);
+          
+          // Trigger animation
+          setTimeout(() => overlay.classList.add('show'), 10);
+          
+          // Fechar ao clicar no overlay
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay || e.target.classList.contains('btn-close')) {
+              closeEmailModal();
+            }
+          });
+          
+          // Fechar com ESC
+          const escHandler = function(e) {
+            if (e.key === 'Escape') {
+              closeEmailModal();
+              document.removeEventListener('keydown', escHandler);
+            }
+          };
+          document.addEventListener('keydown', escHandler);
+          
+          // Copiar e-mail
+          const copyBtn = overlay.querySelector('#copy-email-btn');
+          const feedback = overlay.querySelector('#copy-feedback');
+          copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(email).then(function() {
+              feedback.classList.add('show');
+              setTimeout(function() {
+                feedback.classList.remove('show');
+              }, 2000);
+            }).catch(function() {
+              // Fallback para navegadores antigos
+              const textarea = document.createElement('textarea');
+              textarea.value = email;
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand('copy');
+              document.body.removeChild(textarea);
+              feedback.classList.add('show');
+              setTimeout(function() {
+                feedback.classList.remove('show');
+              }, 2000);
+            });
+          });
+        }
+        
+        function closeEmailModal() {
+          const overlay = document.getElementById('email-modal-overlay');
+          if (overlay) {
+            overlay.classList.remove('show');
+            setTimeout(() => overlay.remove(), 300);
+          }
+        }
+        
+        // Interceptar cliques no link mailto
+        document.addEventListener('DOMContentLoaded', function() {
+          // Aguardar o React renderizar
+          setTimeout(function() {
+            // Procurar por links mailto
+            const checkAndIntercept = function() {
+              const links = document.querySelectorAll('a[href^="mailto:"]');
+              links.forEach(function(link) {
+                if (link.getAttribute('data-modal-handled')) return;
+                link.setAttribute('data-modal-handled', 'true');
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  openEmailModal();
+                });
+              });
+            };
+            
+            // Verificar imediatamente
+            checkAndIntercept();
+            
+            // Verificar periodicamente (para elementos renderizados dinamicamente)
+            setInterval(checkAndIntercept, 1000);
+          }, 1000);
+        });
+      })();
+    </script>
   </body>
 
 </html>
