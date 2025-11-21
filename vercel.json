@@ -4,6 +4,7 @@
     { "src": "assets/**", "use": "@vercel/static" },
     { "src": "images/**", "use": "@vercel/static" },
     { "src": "videos/**", "use": "@vercel/static" },
+    { "src": "blog/**", "use": "@vercel/static" },
     { "src": "robots.txt", "use": "@vercel/static" },
     { "src": "sitemap.xml", "use": "@vercel/static" }
   ],
