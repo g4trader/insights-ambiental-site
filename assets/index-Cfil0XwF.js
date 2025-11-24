@@ -244,7 +244,7 @@ const sj=U.forwardRef(({color:o="currentColor",size:s=24,strokeWidth:u=2,absolut
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.*/
-constst un=(o,s)=>{const u=U.forwardRef(({className:d,...v},h)=>U.createElement(sj,{ref:h,iconNode:s,className:KS(`lucide-${ij(o)}`,d),...v}));return u.displayName=`${o}`,u};/**
+const un=(o,s)=>{const u=U.forwardRef(({className:d,...v},h)=>U.createElement(sj,{ref:h,iconNode:s,className:KS(`lucide-${ij(o)}`,d),...v}));return u.displayName=`${o}`,u};/**
  * @license lucide-react v0.453.0 - ISC
  *
  * This source code is licensed under the ISC license.
