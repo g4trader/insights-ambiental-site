@@ -357,7 +357,7 @@ React keys must be passed directly to JSX without using spread:
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
- */const Nj=un("X",[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]]);function Cj(o,s){if(o instanceof RegExp)return{keys:!1,pattern:o};var u,d,v,h,c=[],w="",S=o.split("/");for(S[0]||S.shift();v=S.shift();)u=v[0],u==="*"?(c.push(u),w+=v[1]==="?"?"(?:/(.*))?":"/(.*)"):u===":"?(d=v.indexOf("?",1),h=v.indexOf(".",1),c.push(v.substring(1,~d?d:~h?h:v.length)),w+=~d&&!~h?"(?:/([^/]+?))?":"/([^/]+?)",~h&&(w+=(~d?"?":"")+"\\"+v.substring(h))):w+="/"+v;return{keys:c,pattern:new RegExp("^"+w+(s?"(?=$|/)":"/?$"),"i")}}var Oh={exports:{}},kh={},YE;function Rj(){if(YE)return kh;YE=1;/**
+ */ const Nj=un("X",[["path",{d:"M18 6 6 18",key:"1bl5f8"}],["path",{d:"m6 6 12 12",key:"d8bk6v"}]]);function Cj(o,s){if(o instanceof RegExp)return{keys:!1,pattern:o};var u,d,v,h,c=[],w="",S=o.split("/");for(S[0]||S.shift();v=S.shift();)u=v[0],u==="*"?(c.push(u),w+=v[1]==="?"?"(?:/(.*))?":"/(.*)"):u===":"?(d=v.indexOf("?",1),h=v.indexOf(".",1),c.push(v.substring(1,~d?d:~h?h:v.length)),w+=~d&&!~h?"(?:/([^/]+?))?":"/([^/]+?)",~h&&(w+=(~d?"?":"")+"\\"+v.substring(h))):w+="/"+v;return{keys:c,pattern:new RegExp("^"+w+(s?"(?=$|/)":"/?$"),"i")}}var Oh={exports:{}},kh={},YE;function Rj(){if(YE)return kh;YE=1;/**
  * @license React
  * use-sync-external-store-shim.development.js
  *
