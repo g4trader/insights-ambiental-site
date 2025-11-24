@@ -239,7 +239,7 @@ const ij=o=>o.replace(/([a-z0-9])([A-Z])/g,"$1-$2").toLowerCase(),KS=(...o)=>o.f
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
 */
-constt sj=U.forwardRef(({color:o="currentColor",size:s=24,strokeWidth:u=2,absoluteStrokeWidth:d,className:v="",children:h,iconNode:c,...w},S)=>U.createElement("svg",{ref:S,...oj,width:s,height:s,stroke:o,strokeWidth:d?Number(u)*24/Number(s):u,className:KS("lucide",v),...w},[...c.map(([E,T])=>U.createElement(E,T)),...Array.isArray(h)?h:[h]]));/**
+const sj=U.forwardRef(({color:o="currentColor",size:s=24,strokeWidth:u=2,absoluteStrokeWidth:d,className:v="",children:h,iconNode:c,...w},S)=>U.createElement("svg",{ref:S,...oj,width:s,height:s,stroke:o,strokeWidth:d?Number(u)*24/Number(s):u,className:KS("lucide",v),...w},[...c.map(([E,T])=>U.createElement(E,T)),...Array.isArray(h)?h:[h]]));/**
  * @license lucide-react v0.453.0 - ISC
  *
  * This source code is licensed under the ISC license.
