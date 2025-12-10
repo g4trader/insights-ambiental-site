@@ -97,8 +97,9 @@
             var href = link.getAttribute('href');
             var text = link.textContent.trim();
             // If it's a blog link or contains "Blog" text
-            if ((href && (href.includes('/blog') || href === '/blog')) || text === 'Blog') {
+            if ((href && (href.includes('/blog') || href === '/blog')) || text === 'Blog' || text === 'Artigos') {
               link.setAttribute('href', '/artigos');
+              link.href = '/artigos'; // Force set href property as well
               // Change text from "Blog" to "Artigos"
               if (text === 'Blog') {
                 link.textContent = 'Artigos';
@@ -107,11 +108,35 @@
           });
         }
         
+        // Intercept clicks on blog links to redirect to /artigos
+        function interceptBlogClicks(e) {
+          var target = e.target;
+          // Find the link element if click was on child element
+          while (target && target.tagName !== 'A') {
+            target = target.parentElement;
+          }
+          if (target && target.tagName === 'A') {
+            var href = target.getAttribute('href') || target.href;
+            var text = target.textContent.trim();
+            // If it's a blog link or contains "Blog"/"Artigos" text
+            if ((href && (href.includes('/blog') || href === '/blog')) || text === 'Blog' || text === 'Artigos') {
+              e.preventDefault();
+              e.stopPropagation();
+              window.location.href = '/artigos';
+              return false;
+            }
+          }
+        }
+        
+        // Add click listener to document to catch all clicks
+        document.addEventListener('click', interceptBlogClicks, true);
+        
         // Adjust blog link immediately and after React renders
         adjustBlogMenuLink();
         setTimeout(adjustBlogMenuLink, 100);
         setTimeout(adjustBlogMenuLink, 500);
         setTimeout(adjustBlogMenuLink, 1000);
+        setInterval(adjustBlogMenuLink, 2000); // Keep checking every 2 seconds
         
         // Watch for navigation changes
         var navObserver = new MutationObserver(function() {
