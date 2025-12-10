@@ -7,6 +7,7 @@
   <link rel="apple-touch-icon" href="https://www.insightsambiental.com.br/images/favicon.png" />
   <?php wp_head(); ?>
   <style>
+    /* Updated: Logo size adjusted to match main site - v1.1.0 */
     /* Top Bar Styles */
     .top-bar {
       background-color: #047857;
@@ -81,7 +82,8 @@
       opacity: 0.9;
     }
     .header-logo img {
-      height: 80px;
+      max-height: 60px;
+      height: auto;
       width: auto;
       object-fit: contain;
     }
@@ -140,7 +142,8 @@
         height: 80px;
       }
       .header-logo img {
-        height: 64px;
+        max-height: 60px;
+        height: auto;
       }
     }
   </style>
@@ -182,7 +185,7 @@
             <a href="https://www.insightsambiental.com.br/#sobre" class="nav-link">Sobre</a>
             <a href="https://www.insightsambiental.com.br/#servicos" class="nav-link">Serviços</a>
             <a href="https://www.insightsambiental.com.br/#areas" class="nav-link">Áreas de Atuação</a>
-            <a href="<?php echo esc_url(home_url('/blog')); ?>" class="nav-link <?php echo (is_home() || is_single() || is_category() || is_tag()) ? 'active' : ''; ?>">Blog</a>
+            <a href="https://www.insightsambiental.com.br/artigos" class="nav-link <?php echo (is_home() || is_single() || is_category() || is_tag()) ? 'active' : ''; ?>">Artigos</a>
             <a href="https://www.insightsambiental.com.br/#contato" class="nav-button">Contato</a>
           </nav>
         </div>
