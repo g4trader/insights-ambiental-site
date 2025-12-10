@@ -89,22 +89,20 @@
         });
         observer.observe(document.body, { childList: true, subtree: true });
         
-        // Adjust Blog menu link to point to /artigos
+        // Adjust Blog menu link to point to /artigos and change text to "Artigos"
         function adjustBlogMenuLink() {
-          var blogLinks = document.querySelectorAll('a[href*="/blog"], a:contains("Blog")');
-          blogLinks.forEach(function(link) {
+          // Find all navigation links
+          var navLinks = document.querySelectorAll('nav a, header a, .nav-link, [role="navigation"] a, a[href*="/blog"], a[href="/blog"]');
+          navLinks.forEach(function(link) {
             var href = link.getAttribute('href');
             var text = link.textContent.trim();
-            // If it's a blog link or contains "Blog" text and points to /blog
-            if ((href && (href.includes('/blog') || href === '/blog')) || (text === 'Blog' && href && href.includes('blog'))) {
+            // If it's a blog link or contains "Blog" text
+            if ((href && (href.includes('/blog') || href === '/blog')) || text === 'Blog') {
               link.setAttribute('href', '/artigos');
-            }
-          });
-          // Also check for any navigation items with text "Blog"
-          var navLinks = document.querySelectorAll('nav a, header a, .nav-link, [role="navigation"] a');
-          navLinks.forEach(function(link) {
-            if (link.textContent.trim() === 'Blog' && link.getAttribute('href') && link.getAttribute('href').includes('blog')) {
-              link.setAttribute('href', '/artigos');
+              // Change text from "Blog" to "Artigos"
+              if (text === 'Blog') {
+                link.textContent = 'Artigos';
+              }
             }
           });
         }
