@@ -112,3 +112,4 @@ Foram executados 7 testes no ambiente de produção. **4 testes passaram** e **3
 **Nota:** Este relatório foi gerado automaticamente pelos testes de produção. Para mais detalhes, consulte o script de testes em `tests/test_production.py`.
 
 
+

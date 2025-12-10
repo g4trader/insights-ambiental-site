@@ -15,6 +15,11 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
     }
     .top-bar-container {
       max-width: 1280px;
@@ -47,7 +52,7 @@
     /* Header Styles */
     .site-header {
       position: fixed;
-      top: 0;
+      top: 32px;
       left: 0;
       right: 0;
       z-index: 50;
@@ -134,6 +139,9 @@
     @media (max-width: 768px) {
       .top-bar {
         display: none;
+      }
+      .site-header {
+        top: 0;
       }
       body {
         padding-top: 80px;
