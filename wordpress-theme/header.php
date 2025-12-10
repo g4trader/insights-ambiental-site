@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="https://www.insightsambiental.com.br/images/favicon.png" />
   <?php wp_head(); ?>
   <style>
-    /* Updated: Logo size adjusted to match main site - v1.1.0 */
+    /* Updated: Header standardized to match main site - v1.2.0 */
     /* Top Bar Styles */
     .top-bar {
       background-color: #047857;
