@@ -5,6 +5,7 @@
     { "src": "/videos/(.*)", "dest": "/videos/$1" },
     { "src": "/robots.txt", "dest": "/robots.txt" },
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/sitemap-index.xml", "dest": "/sitemap-index.xml" },
     {
       "src": "/artigos/(.*\\.html)",
       "dest": "/artigos/$1",

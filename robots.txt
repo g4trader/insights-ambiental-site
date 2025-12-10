@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
 
+# Sitemaps
+Sitemap: https://insightsambiental.com.br/sitemap-index.xml
 Sitemap: https://insightsambiental.com.br/sitemap.xml
+Sitemap: https://insightsambiental.com.br/wp-sitemap.xml
 
