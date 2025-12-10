@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="https://www.insightsambiental.com.br/images/favicon.png" />
   <?php wp_head(); ?>
   <style>
-    /* Updated: Header standardized with contact button icon and correct colors - v1.3.0 */
+    /* Updated: Header height standardized to match main site - v1.4.0 */
     /* Top Bar Styles */
     .top-bar {
       background-color: #047857;
@@ -74,7 +74,8 @@
       align-items: center;
       justify-content: space-between;
       height: 96px;
-      padding: 1rem 0;
+      padding: 0 0;
+      box-sizing: border-box;
     }
     .header-logo {
       display: flex;
@@ -153,6 +154,8 @@
       }
       .header-content {
         height: 80px;
+        padding: 0 0;
+        box-sizing: border-box;
       }
       .header-logo img {
         max-height: 60px;
