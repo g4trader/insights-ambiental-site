@@ -89,6 +89,38 @@
         });
         observer.observe(document.body, { childList: true, subtree: true });
         
+        // Adjust Blog menu link to point to /artigos
+        function adjustBlogMenuLink() {
+          var blogLinks = document.querySelectorAll('a[href*="/blog"], a:contains("Blog")');
+          blogLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            var text = link.textContent.trim();
+            // If it's a blog link or contains "Blog" text and points to /blog
+            if ((href && (href.includes('/blog') || href === '/blog')) || (text === 'Blog' && href && href.includes('blog'))) {
+              link.setAttribute('href', '/artigos');
+            }
+          });
+          // Also check for any navigation items with text "Blog"
+          var navLinks = document.querySelectorAll('nav a, header a, .nav-link, [role="navigation"] a');
+          navLinks.forEach(function(link) {
+            if (link.textContent.trim() === 'Blog' && link.getAttribute('href') && link.getAttribute('href').includes('blog')) {
+              link.setAttribute('href', '/artigos');
+            }
+          });
+        }
+        
+        // Adjust blog link immediately and after React renders
+        adjustBlogMenuLink();
+        setTimeout(adjustBlogMenuLink, 100);
+        setTimeout(adjustBlogMenuLink, 500);
+        setTimeout(adjustBlogMenuLink, 1000);
+        
+        // Watch for navigation changes
+        var navObserver = new MutationObserver(function() {
+          adjustBlogMenuLink();
+        });
+        navObserver.observe(document.body, { childList: true, subtree: true });
+        
         // Add WhatsApp button
         if (document.querySelector('.floating-whatsapp')) return;
         var link = document.createElement('a');

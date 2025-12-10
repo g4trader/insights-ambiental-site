@@ -6,15 +6,15 @@
     { "src": "/robots.txt", "dest": "/robots.txt" },
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
     {
-      "src": "/blog/(.*\\.html)",
-      "dest": "/blog/$1",
+      "src": "/artigos/(.*\\.html)",
+      "dest": "/artigos/$1",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate"
       }
     },
     {
-      "src": "/blog",
-      "dest": "/blog/index.html",
+      "src": "/artigos",
+      "dest": "/artigos/index.html",
       "headers": {
         "Cache-Control": "public, max-age=0, must-revalidate"
       }
