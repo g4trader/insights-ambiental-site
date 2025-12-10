@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" href="https://www.insightsambiental.com.br/images/favicon.png" />
   <?php wp_head(); ?>
   <style>
-    /* Updated: Header standardized to match main site - v1.2.0 */
+    /* Updated: Header standardized with contact button icon and correct colors - v1.3.0 */
     /* Top Bar Styles */
     .top-bar {
       background-color: #047857;
@@ -116,7 +116,7 @@
       color: #059669;
     }
     .nav-button {
-      background-color: #059669;
+      background-color: #288B4E;
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
@@ -132,6 +132,11 @@
     }
     .nav-button:hover {
       background-color: #047857;
+    }
+    .nav-button svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
     }
     body {
       padding-top: 128px;
@@ -194,7 +199,12 @@
             <a href="https://www.insightsambiental.com.br/#servicos" class="nav-link">Serviços</a>
             <a href="https://www.insightsambiental.com.br/#areas" class="nav-link">Áreas de Atuação</a>
             <a href="https://www.insightsambiental.com.br/artigos" class="nav-link <?php echo (is_home() || is_single() || is_category() || is_tag()) ? 'active' : ''; ?>">Artigos</a>
-            <a href="https://www.insightsambiental.com.br/#contato" class="nav-button">Contato</a>
+            <a href="https://www.insightsambiental.com.br/#contato" class="nav-button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              Contato
+            </a>
           </nav>
         </div>
       </div>
