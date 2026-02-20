@@ -36,7 +36,7 @@
             </div>
             <div class="footer-contact-item">
               <span>📍</span>
-              <span>Rua dos Gerânios, 240 - Caxias do Sul - RS</span>
+              <span>Antenor Lemos, 57 sala 806 Porto Alegre/RS</span>
             </div>
           </div>
         </div>
@@ -44,6 +44,7 @@
           <h3>Registros Profissionais</h3>
           <div class="footer-contact">
             <p>CRBio 63.104-3D</p>
+            <p>OAB/RS 140818</p>
             <p>CREA/RS</p>
           </div>
         </div>

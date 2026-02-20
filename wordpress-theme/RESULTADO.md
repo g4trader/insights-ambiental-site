@@ -19,7 +19,7 @@
   - Email: josiane@insightsambiental.com.br
   - Endereço: Rua dos Gerânios, 240 - Caxias do Sul - RS
 - ✅ Ícones sociais: LinkedIn, Instagram, Facebook
-- ✅ Registros Profissionais: CRBio 63.104-3D, CREA/RS
+- ✅ Registros Profissionais: CRBio 63.104-3D, OAB/RS 140818, CREA/RS
 - ✅ Copyright com ano dinâmico
 
 ### Botão WhatsApp
