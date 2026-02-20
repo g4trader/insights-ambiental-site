@@ -43,7 +43,7 @@
         <div class="footer-section">
           <h3>Registros Profissionais</h3>
           <div class="footer-contact">
-            <p>CRBio 3ª Região</p>
+            <p>CRBio 63.104-3D</p>
             <p>CREA/RS</p>
           </div>
         </div>
